@@ -1,15 +1,18 @@
-<!-- templates/services.html -->
+<!-- templates/about.html -->
+
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Agriculture Loan</title>
+    <title>About Us - Agriculture Loan</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <header>
-        <h1>Our Services</h1>
+        <h1>About Us</h1>
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
@@ -21,13 +24,8 @@
 
     <main>
         <section>
-            <h2>Loan Options</h2>
-            <p>We offer various loan options to support farmers in their agricultural activities. Whether you need funds for equipment, land, or working capital, we have a plan for you.</p>
-            <ul>
-                <li>Short-term Loans</li>
-                <li>Long-term Loans</li>
-                <li>Working Capital Loans</li>
-            </ul>
+            <h2>Who We Are</h2>
+            <p>We are here to provide agricultural loans to farmers and businesses. Our aim is to empower agricultural growth and sustainability through financial support.</p>
         </section>
     </main>
 
