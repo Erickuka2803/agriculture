@@ -16,11 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from .views import apply_for_loan
+from .views import loan 
 from django.urls import path, include
 from . import views
+from agriculture_loan.views import loan
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('loan/', include('loan.urls')),
     path('', views.home, name='home'),
+    path('loan/', loan, name='loan'),
+    path('loan/', views.loan, name='loan'),
+    path('apply/', views.apply_for_loan, name='apply_for_loan'),
+    path('apply/', apply_for_loan, name='apply_for_loan'),
 ]
