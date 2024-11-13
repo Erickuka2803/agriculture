@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2033^ipk6&kl1myqlj62#&ln@=4432&196)x6i2@2yk)2i)g-9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['agriloansystem-c4hpe3ddepbyh4ce.southafricanorth-01.azurewebsites.net', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'agriloansystem-c4hpe3ddepbyh4ce.southafricanorth-01.azurewebsites.net']
 
 
 # Application definition
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'agriculture_loan.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS':  [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,6 +118,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # Ensure your static folder is configured
+]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'

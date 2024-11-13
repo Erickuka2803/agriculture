@@ -1,0 +1,38 @@
+<!-- templates/services.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Agriculture Loan</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Our Services</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Loan Options</h2>
+            <p>We offer various loan options to support farmers in their agricultural activities. Whether you need funds for equipment, land, or working capital, we have a plan for you.</p>
+            <ul>
+                <li>Short-term Loans</li>
+                <li>Long-term Loans</li>
+                <li>Working Capital Loans</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Agriculture Loan | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

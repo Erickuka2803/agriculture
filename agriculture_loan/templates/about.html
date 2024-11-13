@@ -1,0 +1,33 @@
+<!-- templates/about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Agriculture Loan</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Who We Are</h2>
+            <p>We are here to provide agricultural loans to farmers and businesses. Our aim is to empower agricultural growth and sustainability through financial support.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Agriculture Loan | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

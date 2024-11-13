@@ -27,6 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('loan/', include('loan.urls')),
     path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+    path('services/', views.services, name='services'),
     path('loan/', loan, name='loan'),
     path('loan/', views.loan, name='loan'),
     path('apply/', views.apply_for_loan, name='apply_for_loan'),

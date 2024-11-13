@@ -1,0 +1,36 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Agriculture Loan</title>
+
+     {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Agriculture Loan Platform</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Our Mission</h2>
+            <p>We aim to provide financial solutions to farmers and agricultural businesses to foster sustainable growth.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Agriculture Loan | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

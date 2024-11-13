@@ -27,6 +27,12 @@ def home(request):
     print(get_template('home.html'))
     return HttpResponse("Check the server logs for template search directories.")
 
+def about(request):
+    return render(request, 'about.html')
+
+def services(request):
+    return render(request, 'services.html')
+
 def loan(request):
     Loan = apps.get_model('agriculture_loan', 'Loan')     # Move the import inside the function to avoid circular import
 
