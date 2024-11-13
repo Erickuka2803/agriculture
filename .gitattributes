@@ -1,0 +1,17 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Ensure specific files or file types are treated as text
+*.c text
+*.cpp text
+*.h text
+*.java text
+*.js text
+*.py text
+*.html text
+*.css text
+*.md text
+
+# Force CRLF for Windows-specific files
+*.bat text eol=crlf
+*.cmd text eol=crlf
