@@ -18,6 +18,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 from . import views
 from agriculture_loan.views import loan  # Use only one source for the loan view
 from .views import apply_for_loan  # Use only one source for apply_for_loan view
@@ -25,6 +26,8 @@ from .views import apply_for_loan  # Use only one source for apply_for_loan view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('home/', include('loan.urls')),  # Adjust if your home view is in the 'loan' app
+    path('', RedirectView.as_view(url='home/', permanent=False)),  # Redirect root URL to /home/
     path('', include('loan.urls')),
     path('loan/', loan, name='loan'),  # Keep only this line for the loan path
     path('apply/', apply_for_loan, name='apply_for_loan'),  # Keep only this line for the apply path
