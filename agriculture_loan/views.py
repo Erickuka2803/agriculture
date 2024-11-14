@@ -1,43 +1,40 @@
+from django.shortcuts import render
 from .models import Loan
+from .services import get_all_loans  # Keep import here
 
+# Function to get all loans
 def get_all_loans():
     return Loan.objects.all()
 
-from django.shortcuts import render
-from .services import get_all_loans
+def home(request):
+    return render(request, 'home.html')  # Make sure 'home.html' exists in your templates folder
 
+# View to render services page
+def services_view(request):
+    return render(request, 'services.html')
+
+# View to apply for loan
 def apply_for_loan(request):
     # Your logic to handle loan application
     return render(request, 'apply_for_loan.html')
 
+# View to show all loans
 def loan(request):
-     loans = Loan.objects.all()
-     return render(request, 'loan.html', {'loans': loans})
+    loans = Loan.objects.all()
+    return render(request, 'loan.html', {'loans': loans})
 
-from django.apps import apps
-from django.template.loader import get_template
-from django.http import HttpResponse
-from .views import loan
-from .services import get_all_loans
+# Base view, renders the base template
+def base(request):
+    return render(request, 'agriculture_loan/base.html')
 
-
-# Create your views here.
+# Home view, renders the home template
 def home(request):
-    return render(request, 'home.html')  # Render the home page template
-    print(get_template('home.html'))
-    return HttpResponse("Check the server logs for template search directories.")
+    return render(request, 'agriculture_loan/home.html')
 
+# About view, renders the about template
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'agriculture_loan/about.html')
 
+# Services view, renders the services template
 def services(request):
-    return render(request, 'services.html')
-
-def loan(request):
-    Loan = apps.get_model('agriculture_loan', 'Loan')     # Move the import inside the function to avoid circular import
-
-def loan(request):
-    from agriculture_loan.models import Loan 
-    # Function code here
-    pass
-
+    return render(request, 'agriculture_loan/services.html')

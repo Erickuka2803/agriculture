@@ -1,0 +1,19 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to the Agriculture Loan System</h1>
+    
+    <h2>Available Loans</h2>
+    <ul>
+        {% for loan in loans %}
+            <li>{{ loan.name }} - {{ loan.amount }}</li>
+        {% empty %}
+            <li>No loans available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

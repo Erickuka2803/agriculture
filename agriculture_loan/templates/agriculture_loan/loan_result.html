@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h2>Loan Application Result</h2>
+    
+    <h3>Application Details</h3>
+    <p><strong>Name:</strong> {{ application.name }}</p>
+    <p><strong>Email:</strong> {{ application.email }}</p>
+    <p><strong>Income:</strong> ${{ application.income }}</p>
+    <p><strong>Loan Amount Requested:</strong> ${{ application.loan_amount }}</p>
+    <p><strong>Loan Purpose:</strong> {{ application.loan_purpose }}</p>
+    <p><strong>Loan Term:</strong> {{ application.loan_term }} months</p>
+
+    <h3>Loan Scoring Result</h3>
+    <p><strong>Score:</strong> {{ score }}</p>
+
+    {% if score >= 750 %}
+      <p class="text-success">Your loan application is approved!</p>
+    {% else %}
+      <p class="text-danger">Unfortunately, your loan application is denied.</p>
+    {% endif %}
+    
+    <a href="{% url 'loan:apply_for_loan' %}" class="btn btn-primary">Apply for another loan</a>
+  </div>
+{% endblock %}

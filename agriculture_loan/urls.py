@@ -14,23 +14,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
-from .views import apply_for_loan
-from .views import loan 
 from django.urls import path, include
 from . import views
-from agriculture_loan.views import loan
+from agriculture_loan.views import loan  # Use only one source for the loan view
+from .views import apply_for_loan  # Use only one source for apply_for_loan view
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('loan/', include('loan.urls')),
-    path('', views.home, name='home'),
+    path('', include('loan.urls')),
+    path('loan/', loan, name='loan'),  # Keep only this line for the loan path
+    path('apply/', apply_for_loan, name='apply_for_loan'),  # Keep only this line for the apply path
     path('about/', views.about, name='about'),
-    path('services/', views.services, name='services'),
-    path('loan/', loan, name='loan'),
-    path('loan/', views.loan, name='loan'),
-    path('apply/', views.apply_for_loan, name='apply_for_loan'),
-    path('apply/', apply_for_loan, name='apply_for_loan'),
+    path('home/', views.home, name='home'),
+    path('services/', views.services_view, name='services'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

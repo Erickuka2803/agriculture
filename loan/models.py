@@ -11,6 +11,15 @@ class LoanApplication(models.Model):
     def __str__(self):
         return self.name
 
+class Loan(models.Model):
+    # Define the fields for the Loan model
+    loan_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    interest_rate = models.DecimalField(max_digits=5, decimal_places=2)
+    # Add other fields as necessary
+
+    def __str__(self):
+        return f"Loan for {self.loan_amount} at {self.interest_rate}%"
+    
     def score(self):
         # Scoring logic based on criteria
         score = 0
